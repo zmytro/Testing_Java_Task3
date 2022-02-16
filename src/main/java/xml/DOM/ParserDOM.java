@@ -1,4 +1,4 @@
-package parsing.xml.DOM;
+package xml.DOM;
 
 import java.io.File;
 import javax.xml.parsers.DocumentBuilderFactory;

@@ -1,4 +1,4 @@
-package parsing.csv;
+package csv;
 
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVParser;
@@ -8,16 +8,9 @@ import java.io.IOException;
 import java.io.Reader;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import org.apache.commons.csv.CSVFormat;
-import org.apache.commons.csv.CSVParser;
-import org.apache.commons.csv.CSVRecord;
-import java.io.IOException;
-import java.io.Reader;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 
 
-    public class BasicCSV {
+public class BasicCSV {
         private static final String SAMPLE_CSV_FILE_PATH = "./users.csv";
 
         public static void main(String[] args) throws IOException {

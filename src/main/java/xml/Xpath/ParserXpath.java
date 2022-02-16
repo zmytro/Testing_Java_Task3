@@ -1,4 +1,4 @@
-package parsing.xml.Xpath;
+package xml.Xpath;
 
 import java.io.File;
 import java.io.IOException;

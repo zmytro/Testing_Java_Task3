@@ -1,4 +1,4 @@
-package parsing.csv;
+package csv;
 
 import com.opencsv.CSVWriter;
 
