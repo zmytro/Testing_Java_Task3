@@ -15,7 +15,7 @@ import java.util.Map;
 public class ExcelDataProvider {
     private static final String MATRICES_PATH = "matrices" + File.separator;
     private static final String TEST_DATA_SHEET_NAME = "test_data";
-    public static final String LOGIN_PAGE_SPREADSHEET_NAME = "LoginPage.xlsx";
+    public static final String LOGIN_PAGE_SPREADSHEET_NAME = "LoginPage.xls";
 
     @DataProvider(name = "LoginPageDataProvider")
     public static Object[][] loginPageDataProvider() {
