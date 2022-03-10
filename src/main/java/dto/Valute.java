@@ -14,7 +14,7 @@ public class Valute {
     @XStreamAsAttribute
     private Integer id;
     @XStreamAlias("NumCode")
-    private Integer numCode;
+    private String numCode;
     @XStreamAlias("CharCode")
     private String charCode;
     @XStreamAlias("Nominal")

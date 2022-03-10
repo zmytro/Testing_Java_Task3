@@ -1,3 +1,5 @@
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.SerializationFeature;
 import com.thoughtworks.xstream.XStream;
 import dto.ValCurs;
 import dto.Valute;
@@ -9,11 +11,13 @@ import org.apache.http.impl.client.DefaultHttpClient;
 
 import org.apache.http.HttpResponse;
 
+import javax.xml.bind.SchemaOutputResolver;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
 public class TestPropertyReader {
+    public static final String EUR = "EUR";
     public static void main(String[] args) throws IOException {
         HttpClient client = new DefaultHttpClient();
         HttpGet request = new HttpGet(PropertyReader.getProperty("bnmUrl"));
@@ -39,8 +43,22 @@ public class TestPropertyReader {
         xstream.addImplicitCollection(ValCurs.class, "valutes", Valute.class);
         ValCurs valCurs = (ValCurs) xstream.fromXML(fullResponse);
 
-        for(Valute valute : valCurs.getValutes()){
+        /*for(Valute valute : valCurs.getValutes()){
             System.out.println(valute.getName());
+        }*/
+        Double valueFromXML = 0.0;
+        for(Valute valute : valCurs.getValutes()){
+            if(valute.getCharCode().equals(EUR))
+           // System.out.println(valute.getCharCode());
+                valueFromXML = valute.getValue();
+            break;
         }
+        System.out.println(EUR + ":" + valueFromXML);
+
+
+        ObjectMapper objectMapper = (new ObjectMapper()).enable(SerializationFeature.INDENT_OUTPUT);
+        System.out.println(objectMapper.writeValueAsString(valCurs));
+
     }
+
 }
